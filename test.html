@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutgers Vibe Check - Graduation Party</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* Light grey background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #FFFFFF; /* White container */
+            border: 2px solid #CC0033; /* Rutgers Scarlet border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            text-align: left; /* Align quiz content to left */
+        }
+        h1 {
+            color: #CC0033; /* Rutgers Scarlet */
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        h2 {
+            color: #555;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-button {
+            display: inline-block;
+            background-color: #CC0033; /* Rutgers Scarlet */
+            color: #FFFFFF;
+            padding: 12px 25px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #990022; /* Darker Scarlet on hover */
+        }
+        #quiz-results {
+            margin-top: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            display: none; /* Hidden by default */
+        }
+        .back-button {
+            display: inline-block;
+            background-color: #555; /* Dark grey for contrast */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rutgers Vibe Check Challenge!</h1>
+        <p style="text-align: center;">Think you know Rutgers? Take this quick quiz to prove you've got the Scarlet Knight spirit!</p>
+        
+        <form id="rutgers-quiz">
+            <div class="question">
+                <h2>1. What is Rutgers' official mascot?</h2>
+                <label><input type="radio" name="q1" value="a"> A) A Lion</label><br>
+                <label><input type="radio" name="q1" value="b"> B) The Scarlet Knight</label><br>
+                <label><input type="radio" name="q1" value="c"> C) A Red Dragon</label><br>
+                <label><input type="radio" name="q1" value="d"> D) An Owl</label>
+            </div>
+
+            <div class="question">
+                <h2>2. What are Rutgers' official colors?</h2>
+                <label><input type="radio" name="q2" value="a"> A) Red and White</label><br>
+                <label><input type="radio" name="q2" value="b"> B) Scarlet and Black</label><br>
+                <label><input type="radio" name="q2" value="c"> C) Scarlet and White</label><br>
+                <label><input type="radio" name="q2" value="d"> D) Red and Blue</label>
+            </div>
+
+            <div class="question">
+                <h2>3. Which New Jersey city is the largest Rutgers campus located in?</h2>
+                <label><input type="radio" name="q3" value="a"> A) Newark</label><br>
+                <label><input type="radio" name="q3" value="b"> B) Camden</label><br>
+                <label><input type="radio" name="q3" value="c"> C) New Brunswick</label><br>
+                <label><input type="radio" name="q3" value="d"> D) Jersey City</label>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Answers</button>
+        </form>
+
+        <div id="quiz-results"></div>
+    </div>
+    <a href="index.html" class="back-button">Back to Home</a>
+
+    <script>
+        document.getElementById('rutgers-quiz').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'c'
+            };
+
+            let score = 0;
+            let correctCount = 0;
+            const form = event.target;
+            const resultDiv = document.getElementById('quiz-results');
+            resultDiv.innerHTML = ''; // Clear previous results
+
+            for (const question in answers) {
+                const selected = form.elements[question].value;
+                if (selected === answers[question]) {
+                    score += 1;
+                    correctCount++;
+                }
+            }
+
+            let message = '';
+            if (score === Object.keys(answers).length) {
+                message = `Congratulations! You got all ${score} questions right! You truly embody the Rutgers spirit!`;
+                resultDiv.style.backgroundColor = '#e6ffe6'; // Light green for perfect score
+                resultDiv.style.borderColor = '#4CAF50';
+            } else if (score >= Object.keys(answers).length / 2) {
+                message = `Good effort! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. You've got some Scarlet Knight potential!`;
+                resultDiv.style.backgroundColor = '#fffacd'; // Light yellow for passing
+                resultDiv.style.borderColor = '#FFC107';
+            } else {
+                message = `Keep studying the Rutgers traditions! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. Don't worry, you can always try again!`;
+                resultDiv.style.backgroundColor = '#ffe6e6'; // Light red for not passing
+                resultDiv.style.borderColor = '#F44336';
+            }
+
+            resultDiv.innerHTML = `<p>${message}</p>`;
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
