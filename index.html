@@ -2,24 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My New Site</title>
+    <title>Graduation Party Invitation</title>
     <style>
         body { 
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #add8e6; /* Light blue */
+            min-height: 100vh;
+            background: linear-gradient(to right, #1a2a6c, #001f3f); /* Deep blue/purple gradient */
             margin: 0;
-        }
-        h1 {
+            padding: 20px;
+            box-sizing: border-box;
             color: #333;
-            font-size: 3rem;
+        }
+        .invitation-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            max-width: 650px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #FFD700; /* Gold border */
+        }
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 10px double #4a0072; /* Inner double border, deep purple */
+            border-radius: 25px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif; /* More elegant font for title */
+            color: #4a0072; /* Deep purple */
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #FFD700; /* Gold for highlight */
+            font-size: 2.8rem;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .details {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #eee;
+            position: relative;
+            z-index: 2;
+        }
+        .details p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .details span {
+            color: #001f3f; /* Dark blue for emphasis */
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+        .rsvp {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My New Site</h1>
+    <div class="invitation-card">
+        <h1>You're Invited to a Graduation Celebration!</h1>
+        <p>Please join us as we celebrate the academic achievement of</p>
+        <h2>[GRADUATE'S NAME]</h2>
+        <p>Graduating from [UNIVERSITY/SCHOOL NAME]</p>
+
+        <div class="details">
+            <p><strong>When:</strong> <span>Saturday, May 25, 2024</span></p>
+            <p><strong>Time:</strong> <span>6:00 PM - 9:00 PM</span></p>
+            <p><strong>Where:</strong> <span>The Celebration Hall<br>123 Achievement Ave, Victoriapolis, ST 98765</span></p>
+        </div>
+
+        <p class="rsvp">Kindly RSVP by May 15th to [EMAIL ADDRESS] or [PHONE NUMBER]</p>
+    </div>
 </body>
 </html>
