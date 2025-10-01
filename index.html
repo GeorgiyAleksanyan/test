@@ -2,13 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My New Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutgers Graduation Party - Home</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; margin: 0; }
-        h1 { color: #333; font-size: 3rem; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* Light grey background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: #FFFFFF; /* White container */
+            border: 2px solid #CC0033; /* Rutgers Scarlet border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #CC0033; /* Rutgers Scarlet */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: #555;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .details p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #CC0033;
+        }
+        .rsvp-button {
+            display: inline-block;
+            background-color: #CC0033; /* Rutgers Scarlet */
+            color: #FFFFFF;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .rsvp-button:hover {
+            background-color: #990022; /* Darker Scarlet on hover */
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo span {
+            font-size: 3em; 
+            color: #CC0033; 
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to My New Site</h1>
+    <div class="container">
+        <div class="logo">
+            <span role="img" aria-label="Rutgers R">R</span>
+        </div>
+        <h1>You're Invited!</h1>
+        <h2>Join us to celebrate [Student's Name]'s Graduation!</h2>
+        <p>Proudly graduating from Rutgers University!</p>
+
+        <div class="details">
+            <p><strong>Date:</strong> Saturday, May 25, 2024</p>
+            <p><strong>Time:</strong> 2:00 PM - 6:00 PM</p>
+            <p><strong>Location:</strong> [Your Party Location Address], [City, State]</p>
+        </div>
+
+        <a href="rsvp.html" class="rsvp-button">RSVP Now</a>
+
+        <div class="footer">
+            <p>We can't wait to celebrate with you!</p>
+        </div>
+    </div>
 </body>
 </html>
