@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Graduation Party Invitation</title>
     <style>
-        body { 
+        body {
             font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
@@ -87,13 +87,39 @@
             display: block;
             margin-top: 5px;
         }
-        .rsvp {
+        .rsvp-container {
             margin-top: 30px;
-            font-size: 1rem;
-            color: #666;
-            font-style: italic;
+            text-align: center;
             position: relative;
             z-index: 2;
+        }
+        .rsvp-instruction {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 15px; /* Space between text and button */
+        }
+        .rsvp-button {
+            display: inline-block;
+            background-color: #4a0072; /* Deep purple */
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: 15px; /* Space between button and alt contact */
+        }
+        .rsvp-button:hover {
+            background-color: #6a0092; /* Lighter purple on hover */
+            transform: translateY(-2px);
+        }
+        .rsvp-alt-contact {
+            font-size: 0.95rem;
+            color: #777;
+            font-style: italic;
         }
     </style>
 </head>
@@ -110,7 +136,11 @@
             <p><strong>Where:</strong> <span>The Celebration Hall<br>123 Achievement Ave, Victoriapolis, ST 98765</span></p>
         </div>
 
-        <p class="rsvp">Kindly RSVP by May 15th to [EMAIL ADDRESS] or [PHONE NUMBER]</p>
+        <div class="rsvp-container">
+            <p class="rsvp-instruction">Kindly RSVP by May 15th, 2024</p>
+            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="rsvp-button">RSVP Here</a>
+            <p class="rsvp-alt-contact">If you prefer, email [EMAIL ADDRESS] or call [PHONE NUMBER]</p>
+        </div>
     </div>
 </body>
 </html>
