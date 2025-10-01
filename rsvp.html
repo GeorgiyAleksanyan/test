@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP - Graduation Party</title>
+    <title>RSVP - Rutgers Graduation Party</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
             margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* Light grey background */
+            color: #333;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             min-height: 100vh;
             text-align: center;
@@ -20,84 +20,57 @@
             box-sizing: border-box;
         }
         .container {
-            background-color: #fff;
-            padding: 40px;
+            background-color: #FFFFFF; /* White container */
+            border: 2px solid #CC0033; /* Rutgers Scarlet border */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
+            padding: 30px;
+            max-width: 900px; /* Wider for the iframe */
+            width: 90%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
         }
         h1 {
-            color: #4CAF50;
-            margin-bottom: 20px;
+            color: #CC0033; /* Rutgers Scarlet */
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
         p {
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 20px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            text-align: left;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
+        .form-embed {
             margin-top: 20px;
+            width: 100%;
+            max-width: 700px; /* Adjust based on iframe content */
+            height: 800px; /* Adjust height for the Google Form */
+            border: none;
         }
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        .back-button {
+            display: inline-block;
+            background-color: #555; /* Dark grey for contrast */
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>RSVP for the Graduation Party</h1>
-        <p>Please let us know if you can make it by June 1, 2024.</p>
+        <h1>RSVP for [Student's Name]'s Graduation Party!</h1>
+        <p>Please fill out the form below to let us know if you can make it. We look forward to celebrating with you!</p>
         
-        <form action="#" method="POST">
-            <div>
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="guests">Number of Guests (including yourself):</label>
-                <input type="number" id="guests" name="guests" min="1" max="5" value="1" required>
-            </div>
-            <div>
-                <label for="message">Any dietary restrictions or special notes? (Optional)</label>
-                <textarea id="message" name="message" rows="4" style="width: calc(100% - 20px); padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;"></textarea>
-            </div>
-            <input type="submit" value="Submit RSVP">
-        </form>
-        <p style="font-size: 0.9em; margin-top: 20px;"><em>(Note: This is a placeholder form. For a real event, you'd connect this to a backend or a Google Form.)</em></p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSecZsgdNEVcB2XvHCuhpJTw6FJKHqk1z53QzxC42PF2m0LCXw/viewform?embedded=true" class="form-embed">Loading...</iframe>
     </div>
+    <a href="index.html" class="back-button">Back to Home</a>
 </body>
 </html>
