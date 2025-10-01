@@ -53,7 +53,7 @@
             color: #ffffff;
         }
 
-        .invitation-card {
+        .invitation-card, .rsvp-form-container {
             background-color: #ffffff;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -63,8 +63,9 @@
             position: relative;
             overflow: hidden;
             border: 5px solid #FFD700; /* Gold border */
+            z-index: 50; /* Ensure it's above the pseudo-element */
         }
-        .invitation-card::before {
+        .invitation-card::before, .rsvp-form-container::before {
             content: '';
             position: absolute;
             top: -20px;
@@ -76,6 +77,33 @@
             pointer-events: none;
             z-index: 1;
         }
+        
+        /* Styles specific to the RSVP form container */
+        .rsvp-form-container {
+            max-width: 800px; /* Wider for the form */
+            height: 90vh; /* Take up more vertical space */
+            padding: 20px; /* Adjust padding for iframe */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .rsvp-form-container h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #4a0072;
+            z-index: 2; /* Ensure text is above pseudo-element */
+        }
+
+        .google-form-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2; /* Ensure iframe is above pseudo-element */
+        }
+
 
         h1 {
             font-family: 'Georgia', serif; /* More elegant font for title */
@@ -159,7 +187,7 @@
             font-style: italic;
         }
 
-        /* Responsive adjustments for invitation card */
+        /* Responsive adjustments for invitation card and RSVP form */
         @media (max-width: 768px) {
             body {
                 padding-top: 70px; /* Adjust padding for smaller nav */
@@ -170,7 +198,7 @@
             nav a {
                 font-size: 1rem;
             }
-            .invitation-card {
+            .invitation-card, .rsvp-form-container {
                 padding: 30px;
                 max-width: 90%;
             }
@@ -190,6 +218,17 @@
                 padding: 10px 20px;
                 font-size: 1.1rem;
             }
+            .rsvp-form-container {
+                height: 85vh; /* Adjust height for smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .rsvp-form-container {
+                padding: 15px;
+            }
+            .rsvp-form-container h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -201,23 +240,9 @@
         </ul>
     </nav>
 
-    <div class="invitation-card">
-        <h1>You're Invited to a Graduation Celebration!</h1>
-        <p>Please join us as we celebrate the academic achievement of</p>
-        <h2>Andrew Chacko</h2>
-        <p>Graduating from [UNIVERSITY/SCHOOL NAME]</p>
-
-        <div class="details">
-            <p><strong>When:</strong> <span>Saturday, May 25, 2024</span></p>
-            <p><strong>Time:</strong> <span>6:00 PM - 9:00 PM</span></p>
-            <p><strong>Where:</strong> <span>The Celebration Hall<br>123 Achievement Ave, Victoriapolis, ST 98765</span></p>
-        </div>
-
-        <div class="rsvp-container">
-            <p class="rsvp-instruction">Kindly RSVP by May 15th, 2024</p>
-            <a href="rsvp.html" class="rsvp-button">RSVP Here</a>
-            <p class="rsvp-alt-contact">If you prefer, email [EMAIL ADDRESS] or call [PHONE NUMBER]</p>
-        </div>
+    <div class="rsvp-form-container">
+        <h1>RSVP for Andrew's Graduation Celebration!</h1>
+        <iframe class="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSecZsgdNEVcB2XvHCuhpJTw6FJKHqk1z53QzxC42PF2m0LCXw/viewform?usp=send_form" allowfullscreen></iframe>
     </div>
 </body>
 </html>
