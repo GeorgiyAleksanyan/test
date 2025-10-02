@@ -3,46 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graduation Party - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>test - Built with WebGlo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a3f 0%, #2d1b5e 25%, #3a1e6b 50%, #2d1b5e 75%, #1a1a3f 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
-<body class="font-sans antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
-    <nav class="bg-gray-900 p-4 text-white w-full sticky top-0 z-10 shadow-md mb-8">
-        <div class="container mx-auto flex justify-between items-center relative">
-            <a href="index.html" class="text-2xl font-bold tracking-wider">GRAD PARTY</a>
-            <div class="md:hidden nav-toggle cursor-pointer" onclick="document.querySelector('.nav-links').classList.toggle('active');">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+<body class="min-h-screen text-white">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="glass-effect rounded-3xl p-12 text-center max-w-2xl">
+            <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
             </div>
-            <div class="nav-links hidden md:flex md:items-center md:space-x-4">
-                <a href="index.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">Home</a>
-                <a href="rsvp.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">RSVP</a>
-                <a href="quiz.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">Vibe Check</a>
+            <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">test</h1>
+            <p class="text-xl text-white/70 mb-8">Built with WebGlo AI Website Builder</p>
+            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold">
+                <span>🚀 Ready to customize with AI</span>
             </div>
-        </div>
-    </nav>
-
-    <div class="container bg-white border-2 border-gray-900 rounded-lg shadow-xl p-8 max-w-3xl w-full mx-auto my-8 text-center">
-        <div class="mb-6">
-            <span class="text-7xl font-extrabold text-gray-900" role="img" aria-label="Rutgers R">R</span>
-        </div>
-        <h1 class="text-5xl font-extrabold text-gray-900 mb-4 uppercase">You're Invited!</h1>
-        <h2 class="text-3xl font-semibold text-gray-900 mb-6">Join us to celebrate [Student's Name]'s Graduation!</h2>
-        <p class="text-lg leading-relaxed text-gray-900 mb-8">Proudly graduating from Rutgers University!</p>
-
-        <div class="details space-y-4 mb-10">
-            <p class="text-2xl font-bold text-gray-900"><strong>Date:</strong> Saturday, May 25, 2024</p>
-            <p class="text-2xl font-bold text-gray-900"><strong>Time:</strong> 2:00 PM - 6:00 PM</p>
-            <p class="text-2xl font-bold text-gray-900"><strong>Location:</strong> [Your Party Location Address], [City, State]</p>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-center gap-6 mt-10">
-            <a href="rsvp.html" class="action-button bg-gray-900 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-gray-700 transition-colors duration-300">RSVP Now</a>
-            <a href="quiz.html" class="action-button bg-gray-700 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-gray-900 transition-colors duration-300">Vibe Check!</a>
-        </div>
-
-        <div class="mt-10 text-lg text-gray-600">
-            <p>We can't wait to celebrate with you!</p>
         </div>
     </div>
 </body>
