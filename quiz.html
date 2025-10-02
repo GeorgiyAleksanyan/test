@@ -5,47 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutgers Vibe Check - Graduation Party</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .rutgers-scarlet {
-            color: #CC0033;
-        }
-        .bg-rutgers-scarlet {
-            background-color: #CC0033;
-        }
-        .border-rutgers-scarlet {
-            border-color: #CC0033;
-        }
-        .hover\:bg-rutgers-darker:hover {
-            background-color: #990022;
-        }
-        /* A simple responsive menu for smaller screens (hamburger-like behavior) */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-toggle {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
     <nav class="bg-rutgers-scarlet p-4 text-white w-full sticky top-0 z-10 shadow-md mb-8">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex justify-between items-center relative">
             <a href="index.html" class="text-2xl font-bold tracking-wider">RUTGERS GRAD PARTY</a>
             <div class="md:hidden nav-toggle cursor-pointer" onclick="document.querySelector('.nav-links').classList.toggle('active');">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </div>
-            <div class="nav-links hidden md:flex md:items-center space-x-4">
-                <a href="index.html" class="hover:text-gray-300 transition-colors duration-200">Home</a>
-                <a href="rsvp.html" class="hover:text-gray-300 transition-colors duration-200">RSVP</a>
-                <a href="quiz.html" class="hover:text-gray-300 transition-colors duration-200">Rutgers Vibe Check</a>
+            <div class="nav-links hidden md:flex md:items-center md:space-x-4">
+                <a href="index.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">Home</a>
+                <a href="rsvp.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">RSVP</a>
+                <a href="quiz.html" class="hover:text-gray-300 transition-colors duration-200 block md:inline-block px-4 py-2">Rutgers Vibe Check</a>
             </div>
         </div>
     </nav>
@@ -101,7 +73,7 @@
             const form = event.target;
             const resultDiv = document.getElementById('quiz-results');
             resultDiv.innerHTML = ''; // Clear previous results
-            resultDiv.className = 'mt-8 text-lg font-bold text-center p-4 rounded-md border-2'; // Reset classes
+            resultDiv.classList.remove('hidden', 'quiz-result-correct', 'quiz-result-partial', 'quiz-result-incorrect'); // Reset classes
 
             for (const question in answers) {
                 const selected = form.elements[question].value;
@@ -114,13 +86,13 @@
             let message = '';
             if (score === Object.keys(answers).length) {
                 message = `Congratulations! You got all ${score} questions right! You truly embody the Rutgers spirit!`;
-                resultDiv.classList.add('bg-green-100', 'border-green-400', 'text-green-800');
+                resultDiv.classList.add('quiz-result-correct');
             } else if (score >= Object.keys(answers).length / 2) {
                 message = `Good effort! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. You've got some Scarlet Knight potential!`;
-                resultDiv.classList.add('bg-yellow-100', 'border-yellow-400', 'text-yellow-800');
+                resultDiv.classList.add('quiz-result-partial');
             } else {
                 message = `Keep studying the Rutgers traditions! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. Don't worry, you can always try again!`;
-                resultDiv.classList.add('bg-red-100', 'border-red-400', 'text-red-800');
+                resultDiv.classList.add('quiz-result-incorrect');
             }
 
             resultDiv.innerHTML = `<p>${message}</p>`;
