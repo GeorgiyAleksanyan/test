@@ -3,141 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutgers Vibe Check - Graduation Party</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F8F8F8; /* Light grey background */
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            background-color: #FFFFFF; /* White container */
-            border: 2px solid #CC0033; /* Rutgers Scarlet border */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            max-width: 800px;
-            width: 90%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            text-align: left; /* Align quiz content to left */
-        }
-        h1 {
-            color: #CC0033; /* Rutgers Scarlet */
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            text-align: center;
-        }
-        h2 {
-            color: #555;
-            font-size: 1.5em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1em;
-        }
-        .question input[type="radio"] {
-            margin-right: 10px;
-        }
-        .submit-button {
-            display: inline-block;
-            background-color: #CC0033; /* Rutgers Scarlet */
-            color: #FFFFFF;
-            padding: 12px 25px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1.1em;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #990022; /* Darker Scarlet on hover */
-        }
-        #quiz-results {
-            margin-top: 30px;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-align: center;
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            display: none; /* Hidden by default */
-        }
-        .back-button {
-            display: inline-block;
-            background-color: #555; /* Dark grey for contrast */
-            color: #FFFFFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1em;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .back-button:hover {
-            background-color: #333;
-        }
-    </style>
+    <title>Vibe Check - Graduation Party</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Rutgers Vibe Check Challenge!</h1>
-        <p style="text-align: center;">Think you know Rutgers? Take this quick quiz to prove you've got the Scarlet Knight spirit!</p>
+<body class="font-sans antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
+    <div class="container bg-white border-2 border-gray-900 rounded-lg shadow-xl p-8 max-w-3xl w-full mx-auto my-8 text-left">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4 uppercase text-center">Vibe Check Challenge!</h1>
+        <p class="text-lg leading-relaxed text-gray-900 mb-8 text-center">Think you know Rutgers? Take this quick quiz to prove you've got the Scarlet Knight spirit!</p>
         
         <form id="rutgers-quiz">
-            <div class="question">
-                <h2>1. What is Rutgers' official mascot?</h2>
-                <label><input type="radio" name="q1" value="a"> A) A Lion</label><br>
-                <label><input type="radio" name="q1" value="b"> B) The Scarlet Knight</label><br>
-                <label><input type="radio" name="q1" value="c"> C) A Red Dragon</label><br>
-                <label><input type="radio" name="q1" value="d"> D) An Owl</label>
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3">1. What is Rutgers' official mascot?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="a" class="mr-2"> A) A Lion</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="b" class="mr-2"> B) The Scarlet Knight</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="c" class="mr-2"> C) A Red Dragon</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="d" class="mr-2"> D) An Owl</label>
             </div>
 
-            <div class="question">
-                <h2>2. What are Rutgers' official colors?</h2>
-                <label><input type="radio" name="q2" value="a"> A) Red and White</label><br>
-                <label><input type="radio" name="q2" value="b"> B) Scarlet and Black</label><br>
-                <label><input type="radio" name="q2" value="c"> C) Scarlet and White</label><br>
-                <label><input type="radio" name="q2" value="d"> D) Red and Blue</label>
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3">2. What are Rutgers' official colors?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="a" class="mr-2"> A) Red and White</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="b" class="mr-2"> B) Scarlet and Black</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="c" class="mr-2"> C) Scarlet and White</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="d" class="mr-2"> D) Red and Blue</label>
             </div>
 
-            <div class="question">
-                <h2>3. Which New Jersey city is the largest Rutgers campus located in?</h2>
-                <label><input type="radio" name="q3" value="a"> A) Newark</label><br>
-                <label><input type="radio" name="q3" value="b"> B) Camden</label><br>
-                <label><input type="radio" name="q3" value="c"> C) New Brunswick</label><br>
-                <label><input type="radio" name="q3" value="d"> D) Jersey City</label>
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3">3. Which New Jersey city is the largest Rutgers campus located in?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="a" class="mr-2"> A) Newark</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="b" class="mr-2"> B) Camden</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="c" class="mr-2"> C) New Brunswick</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="d" class="mr-2"> D) Jersey City</label>
             </div>
 
-            <button type="submit" class="submit-button">Submit Answers</button>
+            <button type="submit" class="submit-button bg-gray-900 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-gray-700 transition-colors duration-300 w-full md:w-auto mt-6">Submit Answers</button>
         </form>
 
-        <div id="quiz-results"></div>
+        <div id="quiz-results" class="mt-8 text-lg font-bold text-center p-4 rounded-md border-2 hidden"></div>
     </div>
-    <a href="index.html" class="back-button">Back to Home</a>
+    <a href="index.html" class="back-button bg-gray-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 transition-colors duration-300 mt-6">Back to Home</a>
 
     <script>
         document.getElementById('rutgers-quiz').addEventListener('submit', function(event) {
@@ -154,6 +59,7 @@
             const form = event.target;
             const resultDiv = document.getElementById('quiz-results');
             resultDiv.innerHTML = ''; // Clear previous results
+            resultDiv.classList.remove('hidden', 'quiz-result-correct', 'quiz-result-partial', 'quiz-result-incorrect'); // Reset classes
 
             for (const question in answers) {
                 const selected = form.elements[question].value;
@@ -166,16 +72,13 @@
             let message = '';
             if (score === Object.keys(answers).length) {
                 message = `Congratulations! You got all ${score} questions right! You truly embody the Rutgers spirit!`;
-                resultDiv.style.backgroundColor = '#e6ffe6'; // Light green for perfect score
-                resultDiv.style.borderColor = '#4CAF50';
+                resultDiv.classList.add('quiz-result-correct');
             } else if (score >= Object.keys(answers).length / 2) {
                 message = `Good effort! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. You've got some Scarlet Knight potential!`;
-                resultDiv.style.backgroundColor = '#fffacd'; // Light yellow for passing
-                resultDiv.style.borderColor = '#FFC107';
+                resultDiv.classList.add('quiz-result-partial');
             } else {
                 message = `Keep studying the Rutgers traditions! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. Don't worry, you can always try again!`;
-                resultDiv.style.backgroundColor = '#ffe6e6'; // Light red for not passing
-                resultDiv.style.borderColor = '#F44336';
+                resultDiv.classList.add('quiz-result-incorrect');
             }
 
             resultDiv.innerHTML = `<p>${message}</p>`;
