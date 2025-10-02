@@ -4,107 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutgers Graduation Party - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F8F8F8; /* Light grey background */
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        .container {
-            background-color: #FFFFFF; /* White container */
-            border: 2px solid #CC0033; /* Rutgers Scarlet border */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            box-sizing: border-box;
-        }
-        h1 {
-            color: #CC0033; /* Rutgers Scarlet */
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        h2 {
-            color: #555;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        .details p {
-            font-size: 1.2em;
-            font-weight: bold;
+        /* Custom styles not easily covered by Tailwind */
+        .rutgers-scarlet {
             color: #CC0033;
         }
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-            align-items: center;
+        .bg-rutgers-scarlet {
+            background-color: #CC0033;
         }
-        .action-button {
-            display: inline-block;
-            background-color: #CC0033; /* Rutgers Scarlet */
-            color: #FFFFFF;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-            width: fit-content;
+        .border-rutgers-scarlet {
+            border-color: #CC0033;
         }
-        .action-button:hover {
-            background-color: #990022; /* Darker Scarlet on hover */
+        .hover\:bg-rutgers-darker:hover {
+            background-color: #990022;
         }
-        .logo {
-            margin-bottom: 20px;
-        }
-        .logo span {
-            font-size: 3em; 
-            color: #CC0033; 
-            font-weight: bold;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
+        /* A simple responsive menu for smaller screens (hamburger-like behavior) */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">
-            <span role="img" aria-label="Rutgers R">R</span>
+<body class="font-sans antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
+    <nav class="bg-rutgers-scarlet p-4 text-white w-full sticky top-0 z-10 shadow-md mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider">RUTGERS GRAD PARTY</a>
+            <div class="md:hidden nav-toggle cursor-pointer" onclick="document.querySelector('.nav-links').classList.toggle('active');">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </div>
+            <div class="nav-links hidden md:flex md:items-center space-x-4">
+                <a href="index.html" class="hover:text-gray-300 transition-colors duration-200">Home</a>
+                <a href="rsvp.html" class="hover:text-gray-300 transition-colors duration-200">RSVP</a>
+                <a href="quiz.html" class="hover:text-gray-300 transition-colors duration-200">Rutgers Vibe Check</a>
+            </div>
         </div>
-        <h1>You're Invited!</h1>
-        <h2>Join us to celebrate [Student's Name]'s Graduation!</h2>
-        <p>Proudly graduating from Rutgers University!</p>
+    </nav>
 
-        <div class="details">
-            <p><strong>Date:</strong> Saturday, May 25, 2024</p>
-            <p><strong>Time:</strong> 2:00 PM - 6:00 PM</p>
-            <p><strong>Location:</strong> [Your Party Location Address], [City, State]</p>
+    <div class="container bg-white border-2 border-rutgers-scarlet rounded-lg shadow-xl p-8 max-w-3xl w-full mx-auto my-8 text-center">
+        <div class="mb-6">
+            <span class="text-7xl font-extrabold rutgers-scarlet" role="img" aria-label="Rutgers R">R</span>
+        </div>
+        <h1 class="text-5xl font-extrabold rutgers-scarlet mb-4 uppercase">You're Invited!</h1>
+        <h2 class="text-3xl font-semibold text-gray-700 mb-6">Join us to celebrate [Student's Name]'s Graduation!</h2>
+        <p class="text-lg leading-relaxed text-gray-700 mb-8">Proudly graduating from Rutgers University!</p>
+
+        <div class="details space-y-4 mb-10">
+            <p class="text-2xl font-bold rutgers-scarlet"><strong>Date:</strong> Saturday, May 25, 2024</p>
+            <p class="text-2xl font-bold rutgers-scarlet"><strong>Time:</strong> 2:00 PM - 6:00 PM</p>
+            <p class="text-2xl font-bold rutgers-scarlet"><strong>Location:</strong> [Your Party Location Address], [City, State]</p>
         </div>
 
-        <div class="button-group">
-            <a href="rsvp.html" class="action-button">RSVP Now</a>
-            <a href="test.html" class="action-button">Rutgers Vibe Check!</a>
+        <div class="flex flex-col md:flex-row justify-center gap-6 mt-10">
+            <a href="rsvp.html" class="action-button bg-rutgers-scarlet text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-rutgers-darker transition-colors duration-300">RSVP Now</a>
+            <a href="quiz.html" class="action-button bg-gray-700 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-gray-900 transition-colors duration-300">Rutgers Vibe Check!</a>
         </div>
 
-        <div class="footer">
+        <div class="mt-10 text-lg text-gray-600">
             <p>We can't wait to celebrate with you!</p>
         </div>
     </div>
