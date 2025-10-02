@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutgers Vibe Check - Graduation Party</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .rutgers-scarlet {
+            color: #CC0033;
+        }
+        .bg-rutgers-scarlet {
+            background-color: #CC0033;
+        }
+        .border-rutgers-scarlet {
+            border-color: #CC0033;
+        }
+        .hover\:bg-rutgers-darker:hover {
+            background-color: #990022;
+        }
+        /* A simple responsive menu for smaller screens (hamburger-like behavior) */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-4">
+    <nav class="bg-rutgers-scarlet p-4 text-white w-full sticky top-0 z-10 shadow-md mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider">RUTGERS GRAD PARTY</a>
+            <div class="md:hidden nav-toggle cursor-pointer" onclick="document.querySelector('.nav-links').classList.toggle('active');">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </div>
+            <div class="nav-links hidden md:flex md:items-center space-x-4">
+                <a href="index.html" class="hover:text-gray-300 transition-colors duration-200">Home</a>
+                <a href="rsvp.html" class="hover:text-gray-300 transition-colors duration-200">RSVP</a>
+                <a href="quiz.html" class="hover:text-gray-300 transition-colors duration-200">Rutgers Vibe Check</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container bg-white border-2 border-rutgers-scarlet rounded-lg shadow-xl p-8 max-w-3xl w-full mx-auto my-8 text-left">
+        <h1 class="text-4xl font-extrabold rutgers-scarlet mb-4 uppercase text-center">Rutgers Vibe Check Challenge!</h1>
+        <p class="text-lg leading-relaxed text-gray-700 mb-8 text-center">Think you know Rutgers? Take this quick quiz to prove you've got the Scarlet Knight spirit!</p>
+        
+        <form id="rutgers-quiz">
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-3">1. What is Rutgers' official mascot?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="a" class="mr-2"> A) A Lion</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="b" class="mr-2"> B) The Scarlet Knight</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="c" class="mr-2"> C) A Red Dragon</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q1" value="d" class="mr-2"> D) An Owl</label>
+            </div>
+
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-3">2. What are Rutgers' official colors?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="a" class="mr-2"> A) Red and White</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="b" class="mr-2"> B) Scarlet and Black</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="c" class="mr-2"> C) Scarlet and White</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q2" value="d" class="mr-2"> D) Red and Blue</label>
+            </div>
+
+            <div class="question mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-3">3. Which New Jersey city is the largest Rutgers campus located in?</h2>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="a" class="mr-2"> A) Newark</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="b" class="mr-2"> B) Camden</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="c" class="mr-2"> C) New Brunswick</label>
+                <label class="block mb-2 text-lg"><input type="radio" name="q3" value="d" class="mr-2"> D) Jersey City</label>
+            </div>
+
+            <button type="submit" class="submit-button bg-rutgers-scarlet text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-rutgers-darker transition-colors duration-300 w-full md:w-auto mt-6">Submit Answers</button>
+        </form>
+
+        <div id="quiz-results" class="mt-8 text-lg font-bold text-center p-4 rounded-md border-2 hidden"></div>
+    </div>
+    <a href="index.html" class="back-button bg-gray-700 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 transition-colors duration-300 mt-6">Back to Home</a>
+
+    <script>
+        document.getElementById('rutgers-quiz').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'c'
+            };
+
+            let score = 0;
+            let correctCount = 0;
+            const form = event.target;
+            const resultDiv = document.getElementById('quiz-results');
+            resultDiv.innerHTML = ''; // Clear previous results
+            resultDiv.className = 'mt-8 text-lg font-bold text-center p-4 rounded-md border-2'; // Reset classes
+
+            for (const question in answers) {
+                const selected = form.elements[question].value;
+                if (selected === answers[question]) {
+                    score += 1;
+                    correctCount++;
+                }
+            }
+
+            let message = '';
+            if (score === Object.keys(answers).length) {
+                message = `Congratulations! You got all ${score} questions right! You truly embody the Rutgers spirit!`;
+                resultDiv.classList.add('bg-green-100', 'border-green-400', 'text-green-800');
+            } else if (score >= Object.keys(answers).length / 2) {
+                message = `Good effort! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. You've got some Scarlet Knight potential!`;
+                resultDiv.classList.add('bg-yellow-100', 'border-yellow-400', 'text-yellow-800');
+            } else {
+                message = `Keep studying the Rutgers traditions! You got ${correctCount} out of ${Object.keys(answers).length} questions correct. Don't worry, you can always try again!`;
+                resultDiv.classList.add('bg-red-100', 'border-red-400', 'text-red-800');
+            }
+
+            resultDiv.innerHTML = `<p>${message}</p>`;
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
