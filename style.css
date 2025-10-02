@@ -1,17 +1,4 @@
-/* Custom Rutgers colors */
-.rutgers-scarlet {
-    color: #CC0033;
-}
-.bg-rutgers-scarlet {
-    background-color: #CC0033;
-}
-.border-rutgers-scarlet {
-    border-color: #CC0033;
-}
-.hover\:bg-rutgers-darker:hover {
-    background-color: #990022;
-}
-
+/* Custom Rutgers colors - REMOVED for black and white theme */
 /* Responsive Navigation for smaller screens */
 @media (max-width: 768px) {
     .nav-links {
@@ -26,7 +13,7 @@
         top: 100%; /* Below the main nav bar */
         left: 0;
         right: 0; /* To make it full width */
-        background-color: #CC0033; /* Same as nav bar */
+        background-color: #222; /* Dark gray for nav bar */
         padding: 0.5rem 0; /* Add some vertical padding */
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         z-index: 9;
@@ -55,7 +42,7 @@
     border: none;
 }
 
-/* Quiz Result styles */
+/* Quiz Result styles (kept for functional feedback) */
 .quiz-result-correct {
     background-color: #e6ffe6; /* Light green */
     border-color: #4CAF50; /* Green */
