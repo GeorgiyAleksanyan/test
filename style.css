@@ -1,0 +1,72 @@
+/* Custom Rutgers colors */
+.rutgers-scarlet {
+    color: #CC0033;
+}
+.bg-rutgers-scarlet {
+    background-color: #CC0033;
+}
+.border-rutgers-scarlet {
+    border-color: #CC0033;
+}
+.hover\:bg-rutgers-darker:hover {
+    background-color: #990022;
+}
+
+/* Responsive Navigation for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+        position: absolute;
+        top: 100%; /* Below the main nav bar */
+        left: 0;
+        right: 0; /* To make it full width */
+        background-color: #CC0033; /* Same as nav bar */
+        padding: 0.5rem 0; /* Add some vertical padding */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 9;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    /* Styles for individual links when menu is active on mobile */
+    .nav-links.active a {
+        padding: 0.75rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-links.active a:first-child {
+        border-top: none;
+    }
+}
+
+/* RSVP Form Embed specific styles */
+.form-embed {
+    width: 100%;
+    max-width: 700px; /* Adjust based on iframe content */
+    height: 800px; /* Adjust height for the Google Form */
+    border: none;
+}
+
+/* Quiz Result styles */
+.quiz-result-correct {
+    background-color: #e6ffe6; /* Light green */
+    border-color: #4CAF50; /* Green */
+    color: #1a5e20; /* Darker green text */
+}
+
+.quiz-result-partial {
+    background-color: #fffacd; /* Light yellow */
+    border-color: #FFC107; /* Yellow */
+    color: #8b6508; /* Darker yellow text */
+}
+
+.quiz-result-incorrect {
+    background-color: #ffe6e6; /* Light red */
+    border-color: #F44336; /* Red */
+    color: #9f3a3a; /* Darker red text */
+}
